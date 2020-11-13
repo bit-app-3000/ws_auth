@@ -1,0 +1,33 @@
+{
+  "name": "ws-auth",
+  "version": "0.0.2",
+  "description": "ws-auth",
+  "private": true,
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "primus": "*",
+    "primus-emit": "*",
+    "ws": "*",
+    "redom": "*",
+    "@redom/store": "*"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "*",
+    "@rollup/plugin-node-resolve": "*",
+    "@rollup/plugin-run": "*",
+    "rollup": "*",
+    "rollup-plugin-livereload": "*",
+    "rollup-plugin-serve": "*"
+  },
+  "optionalDependencies": {
+    "jose": "*",
+    "find-my-way": "*",
+    "@types/node": "*"
+  },
+  "scripts": {
+    "server": "rollup -wc etc/rollup/server.js",
+    "client": "rollup -wc etc/rollup/client.js",
+    "test": "standard"
+  }
+}
