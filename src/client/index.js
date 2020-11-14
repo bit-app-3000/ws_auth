@@ -1,13 +1,18 @@
 import { el, setChildren } from 'redom'
-import { AppRouter, NavMain } from './components'
-import { authInit, initWebSocket } from './listeners'
+import { Route } from './actions'
+import { NavMain, Router } from './components'
 import { ERR } from './modules'
 
-authInit().catch(ERR)
-initWebSocket()
+import { authInit } from './modules/auth'
 
-const page = [el('header', NavMain), AppRouter]
+authInit()
+  .then(() => setChildren(document.body, [el('header', NavMain), Router]))
+  .then(() => Route('login'))
+  .catch(e => ERR('LOAD', e))
 
-setChildren(document.body, page)
 
-AppRouter.update('auth', {})
+
+
+
+
+

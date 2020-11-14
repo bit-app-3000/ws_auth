@@ -1,5 +1,4 @@
 import { el, text } from 'redom'
-import { authEmailPassword } from '../../listeners'
 import { clone, LOG, store } from '../../modules'
 
 const def = {
@@ -32,7 +31,7 @@ const field = ({ item, label }) =>
     ])
   ])
 
-export class FormAuth {
+export class Login {
   
   constructor () {
     
@@ -44,10 +43,10 @@ export class FormAuth {
       field({ item: this.email, label: 'email' }),
       field({ item: this.password, label: 'password' }),
       // el('button', { type: 'reset', textContent: 'reset' }),
-      el('button', { type: 'submit', textContent: 'submit' }),
-     // this.google
+      el('button', { type: 'submit', textContent: 'submit' })
+      // this.google
     ])
-  
+    
     // this.google.onclick = e => {
     //   e.preventDefault()
     //   authPopUp()
@@ -66,7 +65,7 @@ export class FormAuth {
     this.el.onsubmit = e => {
       LOG('submit')
       e.preventDefault()
-      authEmailPassword(store.get('auth'))
+      //   authEmailPassword(store.get('auth'))
       
       // this.update(store.set('auth', clone(def)))
     }

@@ -1,5 +1,4 @@
 export * from './home'
-export * from './formAuth'
+export * from './login'
 export * from './contact'
 
-export * from './router'

@@ -10,7 +10,8 @@
     "primus-emit": "*",
     "ws": "*",
     "redom": "*",
-    "@redom/store": "*"
+    "@redom/store": "*",
+    "firebase": "*"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "*",

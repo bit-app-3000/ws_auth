@@ -1,9 +1,9 @@
 import { el, list } from 'redom'
-import { AppRouter } from '../'
 import { LOG } from '../../modules'
+import { Route } from '../../actions'
 
 const clone = s => JSON.parse(JSON.stringify(s))
-const pages = [{ label: 'home' }, { label: 'auth' }, { label: 'contact' }]
+const pages = [{ label: 'home' }, { label: 'login' }, { label: 'contact' }]
 
 class Li {
   
@@ -17,8 +17,11 @@ class Li {
       
       const data = clone(pages)
       data[idx].active = true
-      
-      AppRouter.update(label) && NavMain.update(data)
+  
+      NavMain.update(data)
+  
+      Route(label)
+ 
       
     }
   }

@@ -1,15 +1,14 @@
-// import dev from 'rollup-plugin-dev'
-
-import serve from 'rollup-plugin-serve'
+import nodeResolve from '@rollup/plugin-node-resolve'
 import livereload from 'rollup-plugin-livereload'
-import resolve from '@rollup/plugin-node-resolve'
+import serve from 'rollup-plugin-serve'
 
 export default {
   input: 'src/client/index.js',
   output: {
     file: 'dist/client/index.js',
-    format: 'iife'
+    format: 'es'
   },
+  external: ['firebase'],
   plugins: [
     serve({
       open: false,
@@ -21,7 +20,19 @@ export default {
         'Access-Control-Allow-Origin': '*'
       }
     }),
-    resolve(),
+    nodeResolve(),
     livereload()
   ]
 }
+
+
+
+// commonjs({
+//   include: 'node_modules/**'
+// }),
+// {
+//   browser: true,
+//     jsnext: true
+//   // main: true,
+//   //dedupe: true
+// }
